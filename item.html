@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AddItems</title>
+    <link rel="stylesheet" href="style.css">
+
+    <script defer src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
+    <script defer src="https://www.gstatic.com/firebasejs/8.10.1/firebase-database.js"></script>
+
+    <script defer src="init-firebase.js"></script>
+    
+    <script src = "script.js" defer></script>
+</head>
+<body>
+    <h1>Add your items to the lost and found here!</h1>
+    <h1>It has a submit button that adds the object to the database and says "Object Submitted! Thanks!</h1>
+
+    <div id="typing-container">
+      <form>
+        <div class="input-container">
+          <label>Item Name:</label>
+          <input type="text" id="itemName" />
+        </div>
+
+        <div class="input-container">
+          <label>Location:</label>
+          <input type="text" id="location" />
+        </div>
+
+        <div class="input-container">
+          <label>Email:</label>
+          <input type="text" id="contactEmail" />
+        </div>
+
+        <div class="input-container">
+          <label>Phone:</label>
+          <input type="text" id="contactPhone" />
+        </div>
+
+        <div class="input-container">
+          <label>Description:</label>
+          <input type="text" id="description" />
+        </div>
+
+        <div class="input-container">
+          <label>Category:</label>
+          <input type="text" id="category" />
+        </div>
+
+        <button id="send-btn">Send</button>
+        </form>
+    </div>
+</body>
+</html>
+

@@ -3,18 +3,81 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>HomePage</title>
+    <title>ReclaimIt - Lost & Found</title>
     <link rel="stylesheet" href="style.css">
-    <script src = "script.js" defer></script>
+
+    <!-- Firebase v8 -->
+    <script defer src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
+    <script defer src="https://www.gstatic.com/firebasejs/8.10.1/firebase-database.js"></script>
+
+    <!-- Firebase Init & App Script -->
+    <script defer src="init-firebase.js"></script>
+    
 </head>
 <body>
-    <h1>The Page with the Title of the Service, the Motto, Add an Item Webpage Hyperlink, View Your Items Webpage Hyperlink</h1>
-    <h1>It will also have the hyperlink to the navbar - categories of lost item like footwear, technology, clothes, others etc..</h1>
-    <h1>It will also have all the items displayed in the bottom of this webpage + request button that opens GMAIL</h1>
 
-    <a href="HTMLS/item.html">Access item.html here</a>
-    <a href="HTMLS/viewYourItems.html">View your items</a>
-    <a href="HTMLS/technologyCategory.html">See all tech in the lost and found</a>
-    <a href="HTMLS/market.html">All items on the market</a>
+    <!-- Off-Screen Menu -->
+    <div class="off-screen-menu">
+        <ul>
+            <li><a href="item.html" class="glow-link">Post an Item</a></li>
+            <li><a href="viewYourItems.html">View Your Items</a></li>
+            <li><a href="technologyCategory.html">Technology</a></li>
+            <li><a href="market.html">Market</a></li>
+            <li><a href="#categories">Categories</a></li>
+            <li><a href="#items-list">All Items</a></li>
+        </ul>
+    </div>
+    
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="ham-menu">
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+        <h1 class="nav-title">ReclaimIt</h1>
+    </nav>
+
+    <!-- Header -->
+    <header>
+        <p class="motto">"What's lost can be found"</p>
+        <p class="tagline">Find your valuables here!</p>
+    </header>
+    
+    <!-- Categories Section -->
+    <section id="categories">
+        <h2>Categories</h2>
+        <div class="category-grid">
+            <div class="category-card">👟 Footwear</div>
+            <div class="category-card">💻 Technology</div>
+            <div class="category-card">👕 Clothes</div>
+            <div class="category-card">📦 Others</div>
+        </div>
+    </section>
+
+    <!-- Items Section -->
+    <section id="items-list">
+        <h2>Lost & Found Items</h2>
+        <div id="items-container">
+            <!-- Items from Firebase will appear here -->
+        </div>
+    </section>
+
+    <!-- Request Help Section -->
+    <section id="request">
+        <h2>Need Help?</h2>
+        <p>If you found your item, contact the owner!</p>
+        <a href="mailto:someone@example.com" class="request-btn">📩 Request Return</a>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2025 ReclaimIt. All rights reserved.</p>
+    </footer>
+    <script defer src = "navBar.js"></script>
+    <script defer src="script.js"></script>
+
 </body>
 </html>
