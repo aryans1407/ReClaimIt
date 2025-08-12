@@ -9,11 +9,13 @@ const emailElement = document.getElementById("contactEmail");
 const phoneElement = document.getElementById("contactPhone");
 const descriptionElement = document.getElementById("description");
 const categoryElement = document.getElementById("category");
+const submitMessageElement = document.getElementById("submitMessage");
 
 const itemsContainer = document.querySelector("#itemsContainer");
 
 console.log(itemsContainer);
 
+submitMessageElement.style.display = "none";
 sendBtn.onclick = function(event) {
     // Prevent default refresh
     event.preventDefault();
@@ -21,6 +23,7 @@ sendBtn.onclick = function(event) {
         alert("Please fill in all fields");
     } else {
          updateDB();
+         set
     }
 }
 
@@ -41,7 +44,6 @@ function updateDB(event) {
     // Write to our database
     database.push(data);
     // Reset message
-    itemPictureElement.value = "";
     itemNameElement.value = "";
     locationElement.value = "";
     emailElement.value = "";
@@ -57,7 +59,7 @@ function addItems() {
         itemDiv.className = "items";
         itemDiv.innerHTML = `
             <h3>${item.NAME}</h3>
-            <img src="${item.IMAGE_URL}" style="max-width: 300px; height: auto;" />
+            
             <p>Location: ${item.LOCATION}</p>
             <p>Email: ${item.EMAIL}</p>
             <p>Phone: ${item.PHONE}</p>
@@ -65,12 +67,26 @@ function addItems() {
             <p>Category: ${item.CATEGORY}</p>
             <a id = "request" href="https://mail.google.com/mail/?view=cm&fs=1&to=${item.EMAIL}&su=myLostItem&body=Hi, I belive this item belong to me!
 ">REQUEST ITEM</a>
-
             <hr>
-            
          `;
         itemsContainer.append(itemDiv);
     });
 }
 
 addItems();
+
+document.addEventListener('DOMContentLoaded', function() {
+    const imageInput = document.getElementById('imageUpload');
+    const preview = document.getElementById('preview');
+    if (imageInput && preview) {
+        imageInput.addEventListener('change', function(event) {
+            const file = event.target.files[0];
+            if (file) {
+                preview.src = URL.createObjectURL(file);
+                preview.style.display = 'block';
+            } else {
+                preview.style.display = 'none';
+            }
+        });
+    }
+});

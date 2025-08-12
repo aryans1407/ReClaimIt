@@ -10,20 +10,20 @@
     <script defer src="https://www.gstatic.com/firebasejs/8.10.1/firebase-database.js"></script>
 
     <script defer src="init-firebase.js"></script>
-    
+  
     <script src = "script.js" defer></script>
 </head>
+
 <body>
-    <h1>Add your items to the lost and found here!</h1>
     <h1>It has a submit button that adds the object to the database and says "Object Submitted! Thanks!</h1>
 
     <div id="typing-container">
       <form>
-        <div class="input-container">
-          <label>Picture:</label>
-          <input type="url" id="itemPicture" placeholder="Enter image URL here" />
-        </div>
-
+        <label for="imageUpload" class = "upload-Btn">Upload The Item Picture</label>
+        <input type="file" id = "imageUpload" accept="image/*" style="display:none;">
+        <img id = "preview" src = "#" alt = "Image Preview" style = "display:none; max-width: 200px;"/>
+        
+      <form>
         <div class="input-container">
           <label>Item Name:</label>
           <input type="text" id="itemName" />
@@ -57,9 +57,11 @@
         <button id="send-btn">Send</button>
         </form>
     </div>
+    <h1 id = "submitMessage">Great Work! This LOST ITEM has been successfully added to the Database!</h1>
 
-     <h2 id = "titleItems">All Items</h2>
+    <h2 id = "titleItems">All Items</h2>
     <div id="itemsContainer"></div>
 </body>
 </html>
+
 
