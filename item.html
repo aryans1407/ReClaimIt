@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>AddItems</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="item.css">
 
     <script defer src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
     <script defer src="https://www.gstatic.com/firebasejs/8.10.1/firebase-database.js"></script>
@@ -20,6 +20,11 @@
     <div id="typing-container">
       <form>
         <div class="input-container">
+          <label>Picture:</label>
+          <input type="url" id="itemPicture" placeholder="Enter image URL here" />
+        </div>
+
+        <div class="input-container">
           <label>Item Name:</label>
           <input type="text" id="itemName" />
         </div>
@@ -31,7 +36,7 @@
 
         <div class="input-container">
           <label>Email:</label>
-          <input type="text" id="contactEmail" />
+          <input type="email" id="contactEmail" />
         </div>
 
         <div class="input-container">
@@ -52,6 +57,9 @@
         <button id="send-btn">Send</button>
         </form>
     </div>
+
+     <h2 id = "titleItems">All Items</h2>
+    <div id="itemsContainer"></div>
 </body>
 </html>
 

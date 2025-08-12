@@ -1,6 +1,8 @@
 const database = firebase.database().ref();
 
 const sendBtn = document.getElementById('send-btn');
+
+const itemPictureElement = document.getElementById("itemPicture");
 const itemNameElement = document.getElementById("itemName");
 const locationElement = document.getElementById("location")
 const emailElement = document.getElementById("contactEmail");
@@ -8,93 +10,67 @@ const phoneElement = document.getElementById("contactPhone");
 const descriptionElement = document.getElementById("description");
 const categoryElement = document.getElementById("category");
 
-sendBtn.onclick = updateDB;
+const itemsContainer = document.querySelector("#itemsContainer");
 
-function updateDB(event) {
-  // Prevent default refresh
-  event.preventDefault();
+console.log(itemsContainer);
 
-  // Create data object
-  const data = {
-    NAME: itemNameElement.value,
-    LOCATION: locationElement.value,
-    EMAIL: emailElement.value,
-    PHONE: phoneElement.value,
-    DESCRIPTION: descriptionElement.value,
-    CATEGORY: categoryElement.value,
-  };
-  // console.log the object
-  console.log(data);
-  // GET *PUSH* PUT DELETE
-  // Write to our database
-  database.push(data);
-  // Reset message
-  itemNameElement.value = "";
-  locationElement.value = "";
-  emailElement.value = "";
-  phoneElement.value = "";
-  descriptionElement.value = "";
-  categoryElement.value = "";
+sendBtn.onclick = function(event) {
+    // Prevent default refresh
+    event.preventDefault();
+    if (itemPictureElement.value == "" || itemNameElement.value == "" || locationElement.value == "" || emailElement.value == "" || phoneElement.value == "" || descriptionElement.value == "" || categoryElement.value == "") {
+        alert("Please fill in all fields");
+    } else {
+         updateDB();
+    }
 }
 
-function addMessageToBoard(rowData) {
-//   // Store the value of rowData inside object named 'data'
-//   const data = rowData.val();
-//   // console.log data
-//   console.log(data);
-//   // Create a variable named singleMessage
-//   // that stores function call for makeSingleMessageHTML()
-//   let singleMessage = makeSingleMessageHTML(data.USERNAME, data.EMAIL, data.MESSAGE, data.PROFILE);
-//   // Append the new message HTML element to allMessages
-//   allMessages.append(singleMessage);
-// }
+function updateDB(event) {
+    // Create data object
+    const data = {
+        IMAGE_URL: itemPictureElement.value,
+        NAME: itemNameElement.value,
+        LOCATION: locationElement.value,
+        EMAIL: emailElement.value,
+        PHONE: phoneElement.value,
+        DESCRIPTION: descriptionElement.value,
+        CATEGORY: categoryElement.value,
+    };
+    // console.log the object
+    console.log(data);
+    // GET *PUSH* PUT DELETE
+    // Write to our database
+    database.push(data);
+    // Reset message
+    itemPictureElement.value = "";
+    itemNameElement.value = "";
+    locationElement.value = "";
+    emailElement.value = "";
+    phoneElement.value = "";
+    descriptionElement.value = "";
+    categoryElement.value = "";
+}
 
-// function makeSingleMessageHTML(usernameTxt, emailTxt, messageTxt, profileTxt) {
-//   // Create Parent Div
-//   let parentDiv = document.createElement('div');
-//   // Add Class name .single-message
-//   parentDiv.className = 'single-message';
-//   // parentDiv.classList.add('single-message');
+function addItems() {
+    database.on('child_added', function (snapshot) {
+        const item = snapshot.val();
+        const itemDiv = document.createElement('div');
+        itemDiv.className = "items";
+        itemDiv.innerHTML = `
+            <h3>${item.NAME}</h3>
+            <img src="${item.IMAGE_URL}" style="max-width: 300px; height: auto;" />
+            <p>Location: ${item.LOCATION}</p>
+            <p>Email: ${item.EMAIL}</p>
+            <p>Phone: ${item.PHONE}</p>
+            <p>Description: ${item.DESCRIPTION}</p>
+            <p>Category: ${item.CATEGORY}</p>
+            <a id = "request" href="https://mail.google.com/mail/?view=cm&fs=1&to=${item.EMAIL}&su=myLostItem&body=Hi, I belive this item belong to me!
+">REQUEST ITEM</a>
 
-//   let profilePic = document.createElement("img");
-//   profilePic.className = "single-message-img";
-//   profilePic.src = profileTxt;
-//   parentDiv.appendChild(profilePic);
+            <hr>
+            
+         `;
+        itemsContainer.append(itemDiv);
+    });
+}
 
-//   // Create Username P Tag
-//   let usernameP = document.createElement('p');
-//   usernameP.className = 'single-message-username';
-//   usernameP.innerHTML = usernameTxt + ':';
-  
-//   // Append username
-//   parentDiv.appendChild(usernameP);
-
-//   //Email + Append
-//   let emailP = document.createElement("p");
-//   emailP.innerHTML = emailTxt;
-//   parentDiv.append(emailP);
-
-//   // Create message P Tag
-//   let messageP = document.createElement('p');
-//   messageP.innerHTML = messageTxt;
-  
-//   // Append message
-//   parentDiv.append(messageP);
-
-//   //Date
-//   const date = new Date();
-//   dateTxt = (date.getMonth() + 1) + "/" + date.getDate() + "/" + date.getFullYear();
-//   let dateP = document.createElement('p');
-//   dateP.className = "single-message-date";
-//   dateP.innerHTML = dateTxt;
-//   parentDiv.append(dateP);
-
-//   timeTxt = date.getHours() + ":" + date.getMinutes() + ":" + date.getMinutes();
-//   let timeP = document.createElement("p");
-//   timeP.className = "single-message-time";
-//   timeP.innerHTML = timeTxt;
-//   parentDiv.append(timeP);
-  
-//   // Return Parent Div
-//   return parentDiv;
-// }
+addItems();
