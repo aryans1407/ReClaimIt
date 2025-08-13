@@ -66,9 +66,8 @@ function addItems() {
             <p>Phone: ${item.PHONE}</p>
             <p>Description: ${item.DESCRIPTION}</p>
             <p>Category: ${item.CATEGORY}</p>
-            <a id = "request" href="https://mail.google.com/mail/?view=cm&fs=1&to=${item.EMAIL}&su=myLostItem&body=Hi, I belive this item belong to me!
+            <a id = "request" href="https://mail.google.com/mail/?view=cm&fs=1&to=${item.EMAIL}&su=myLostItem&body=Hi, I believe this item belongs to me!
 " target="_blank">REQUEST ITEM</a>
-
             <hr>
             
          `;
