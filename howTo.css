@@ -1,0 +1,120 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(135deg, #f5f7fa, #e3edf7);
+    color: #333;
+    line-height: 1.6;
+    padding: 20px;
+}
+
+h1 {
+    text-align: center;
+    color: #2c3e50;
+    font-size: 2.2rem;
+    margin-bottom: 30px;
+}
+
+ol {
+    max-width: 800px;
+    margin: auto;
+    list-style: none; 
+    counter-reset: step-counter;
+}
+
+ol > li {
+    background: #fff;
+    padding: 20px;
+    margin-bottom: 15px;
+    border-radius: 12px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+    position: relative;
+    counter-increment: step-counter;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+ol > li:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 14px rgba(0, 0, 0, 0.12);
+}
+
+
+ol > li::before {
+    content: counter(step-counter);
+    position: absolute;
+    left: -10px;
+    top: 20px;
+    background: #3498db;
+    color: #fff;
+    font-weight: bold;
+    border-radius: 50%;
+    width: 35px;
+    height: 35px;
+    text-align: center;
+    line-height: 35px;
+    font-size: 1.1rem;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+}
+
+a {
+    color: #2980b9;
+    text-decoration: none;
+    font-weight: 500;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+ul {
+    margin-top: 10px;
+    margin-left: 20px;
+}
+
+ul li {
+    margin-bottom: 6px;
+}
+
+code {
+    background: #f1f1f1;
+    padding: 2px 6px;
+    border-radius: 4px;
+    font-size: 0.9rem;
+}
+
+ol > li:last-child {
+    border: 2px solid #27ae60;
+}
+
+ol > li {
+    background: #fff;
+    padding: 20px 20px 20px 70px; /* Increased left padding */
+    margin-bottom: 15px;
+    border-radius: 12px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+    position: relative;
+    counter-increment: step-counter;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+ol > li::before {
+    content: counter(step-counter);
+    position: absolute;
+    left: 20px; /* Space between badge and text */
+    top: 50%;
+    transform: translateY(-50%);
+    background: #3498db;
+    color: #fff;
+    font-weight: bold;
+    border-radius: 50%;
+    width: 35px;
+    height: 35px;
+    text-align: center;
+    line-height: 35px;
+    font-size: 1.1rem;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+}
