@@ -18,13 +18,14 @@
 <body>
   <h2 id="titleItems">All Items</h2>
   <div id="itemsContainer"></div>
-  
-  <h1 id = "addItems">ADD THE LOST ITEMS YOU FOUND</h1>
+
+  <h1 id="addItems">ADD THE LOST ITEMS YOU FOUND</h1>
 
   <div id="typing-container">
     <form>
       <div class="input-container">
-        <label>Picture: Upload an Image from the Web or Upload Yours - <a href="howToUrl.html" target="_blank">HOW TO?</a></label>
+        <label>Picture: Upload an Image from the Web or Upload Yours - <a href="howToUrl.html" target="_blank">HOW
+            TO?</a></label>
         <input type="url" id="itemPicture" placeholder="Enter image URL here" />
       </div>
 
@@ -35,7 +36,7 @@
 
       <div class="input-container">
         <label>Location:</label>
-          <input type="text" id="location" />
+        <input type="text" id="location" />
       </div>
 
       <div class="input-container">
@@ -53,9 +54,24 @@
         <input type="text" id="description" />
       </div>
 
-      <div class="input-container">
+      <!-- <div class="input-container">
         <label>Category:</label>
         <input type="text" id="category" />
+      </div> -->
+      <div class="input-container">
+        <label>Category:</label>
+        <select id="category">
+          <option value="" disabled selected>Select a Category!</option>
+          <option value="Documents">Documents</option>
+          <option value="Electronics">Electronics</option>
+          <option value="Clothing & Accessories">Clothing and Accessories</option>
+          <option value="Bags and Luggage">Bags and Luggage</option>
+
+          <option value="Jewelry and Valueables">Jewelry and Valueables</option>
+          <option value="Sports & Leisure Items">Sports and Leisure Items</option>
+          <option value="Tools and Equipment">Tools and Equipment</option>
+          <option value="OTHERS">OTHERS</option>
+        </select>
       </div>
 
       <button id="send-btn">Send</button>

@@ -180,3 +180,32 @@ input:focus {
     padding: 15px;
   }
 }
+
+/* Category Dropdown Styling */
+#category {
+    width: 100%;
+    padding: 8px 12px;
+    font-size: 0.95rem;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    background-color: #fff;
+    color: #333;
+    outline: none;
+    transition: border 0.2s ease, box-shadow 0.2s ease;
+    appearance: none; /* Remove default browser arrow */
+    background-image: url("data:image/svg+xml;utf8,<svg fill='%233498db' height='16' viewBox='0 0 24 24' width='16' xmlns='http://www.w3.org/2000/svg'><path d='M7 10l5 5 5-5z'/></svg>");
+    background-repeat: no-repeat;
+    background-position: right 10px center;
+    background-size: 14px;
+    padding-right: 30px; /* Room for custom arrow */
+}
+
+/* Hover and Focus Effects */
+#category:hover {
+    border-color: #3498db;
+}
+
+#category:focus {
+    border-color: #3498db;
+    box-shadow: 0 0 5px rgba(52, 152, 219, 0.4);
+}

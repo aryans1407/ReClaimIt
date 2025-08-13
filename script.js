@@ -61,11 +61,11 @@ function addItems() {
         itemDiv.innerHTML = `
             <h3>${item.NAME}</h3>
             <img src="${item.IMAGE_URL}" style="max-width: 300px; height: 200px;" />
-            <p>Location: ${item.LOCATION}</p>
-            <p>Email: ${item.EMAIL}</p>
-            <p>Phone: ${item.PHONE}</p>
-            <p>Description: ${item.DESCRIPTION}</p>
-            <p>Category: ${item.CATEGORY}</p>
+            <p><strong>Location:</strong> ${item.LOCATION}</p>
+            <p><strong>Email:</strong> ${item.EMAIL}</p>
+            <p><strong>Phone:</strong>${item.PHONE}</p>
+            <p><strong>Description:</strong> ${item.DESCRIPTION}</p>
+            <p><strong>Category:</strong> ${item.CATEGORY}</p>
             <a id = "request" href="https://mail.google.com/mail/?view=cm&fs=1&to=${item.EMAIL}&su=myLostItem&body=Hi, I believe this item belongs to me!
 " target="_blank">REQUEST ITEM</a>
             <hr>
