@@ -135,12 +135,15 @@ nav {
     font-size: 2.7rem;            
     height: 225px;               
     flex: 1;                     
-    margin: 0 10px;             
+    margin: 0 10px;      
     text-decoration: none;
 }
 
 #logo {
-    width: 250px;
+    width: 275px;
+    height: 250px;
+    padding-top: 10px;
+    padding-bottom: 10px;
 }
 
 #button1:hover {
@@ -154,6 +157,8 @@ nav {
 .nav-title{
     margin-top: -30px;
     color: white;
+    font-weight: 500;
+    font-style: "Nunito";
 }
 
 .motto{
@@ -165,6 +170,37 @@ nav {
     background-color: aqua;
     margin-top: 0px;
     margin-bottom: 0px;
-    padding-top: 10px;
-    padding-bottom: 10px;
+    padding-top: 15px;
+    padding-bottom: 15px;
+}
+
+#about {
+    display: column;
+    margin-top: -27px;
+    background-color: aquamarine;
+}
+
+#brandDescription {
+    margin-left: 10px;
+    margin-right: 10px;
+    line-height: 1.8;
+    font-size: 25px;
+    color: darkblue;
+    padding-bottom: 20px;
+}
+
+#jab {
+    text-align: center;
+    padding-top: 20px;
+    font-size: 40px;
+}
+
+footer {
+    background-color: lightskyblue;
+    font-size: 25px;
+    margin-top: -25px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    padding-left: 5px;
+    padding-right: 5px;
 }

@@ -1,67 +1,66 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AddItems</title>
-    <link rel="stylesheet" href="item.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AddItems</title>
+  <link rel="stylesheet" href="item.css">
 
-    <script defer src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
-    <script defer src="https://www.gstatic.com/firebasejs/8.10.1/firebase-database.js"></script>
+  <script defer src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
+  <script defer src="https://www.gstatic.com/firebasejs/8.10.1/firebase-database.js"></script>
 
-    <script defer src="init-firebase.js"></script>
-  
-    <script src = "script.js" defer></script>
+  <script defer src="init-firebase.js"></script>
+
+  <script src="script.js" defer></script>
 </head>
 
 <body>
-    <h1>It has a submit button that adds the object to the database and says "Object Submitted! Thanks!</h1>
+  <h2 id="titleItems">All Items</h2>
+  <div id="itemsContainer"></div>
+  
+  <h1 id = "addItems">ADD THE LOST ITEMS YOU FOUND</h1>
 
-    <div id="typing-container">
-      <form>
-        <label for="imageUpload" class = "upload-Btn">Upload The Item Picture</label>
-        <input type="file" id = "imageUpload" accept="image/*" style="display:none;">
-        <img id = "preview" src = "#" alt = "Image Preview" style = "display:none; max-width: 200px;"/>
-        
-      <form>
-        <div class="input-container">
-          <label>Item Name:</label>
-          <input type="text" id="itemName" />
-        </div>
+  <div id="typing-container">
+    <form>
+      <div class="input-container">
+        <label>Picture:</label>
+        <input type="url" id="itemPicture" placeholder="Enter image URL here" />
+      </div>
 
-        <div class="input-container">
-          <label>Location:</label>
+      <div class="input-container">
+        <label>Item Name:</label>
+        <input type="text" id="itemName" />
+      </div>
+
+      <div class="input-container">
+        <label>Location:</label>
           <input type="text" id="location" />
-        </div>
+      </div>
 
-        <div class="input-container">
-          <label>Email:</label>
-          <input type="email" id="contactEmail" />
-        </div>
+      <div class="input-container">
+        <label>Email:</label>
+        <input type="email" id="contactEmail" />
+      </div>
 
-        <div class="input-container">
-          <label>Phone:</label>
-          <input type="text" id="contactPhone" />
-        </div>
+      <div class="input-container">
+        <label>Phone:</label>
+        <input type="text" id="contactPhone" />
+      </div>
 
-        <div class="input-container">
-          <label>Description:</label>
-          <input type="text" id="description" />
-        </div>
+      <div class="input-container">
+        <label>Description:</label>
+        <input type="text" id="description" />
+      </div>
 
-        <div class="input-container">
-          <label>Category:</label>
-          <input type="text" id="category" />
-        </div>
+      <div class="input-container">
+        <label>Category:</label>
+        <input type="text" id="category" />
+      </div>
 
-        <button id="send-btn">Send</button>
-        </form>
-    </div>
-    <h1 id = "submitMessage">Great Work! This LOST ITEM has been successfully added to the Database!</h1>
-
-    <h2 id = "titleItems">All Items</h2>
-    <div id="itemsContainer"></div>
+      <button id="send-btn">Send</button>
+    </form>
+  </div>
 </body>
+
 </html>
-
-

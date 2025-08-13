@@ -9,13 +9,11 @@ const emailElement = document.getElementById("contactEmail");
 const phoneElement = document.getElementById("contactPhone");
 const descriptionElement = document.getElementById("description");
 const categoryElement = document.getElementById("category");
-const submitMessageElement = document.getElementById("submitMessage");
 
 const itemsContainer = document.querySelector("#itemsContainer");
 
 console.log(itemsContainer);
 
-submitMessageElement.style.display = "none";
 sendBtn.onclick = function(event) {
     // Prevent default refresh
     event.preventDefault();
@@ -23,12 +21,14 @@ sendBtn.onclick = function(event) {
         alert("Please fill in all fields");
     } else {
          updateDB();
-         set
     }
 }
 
 function updateDB(event) {
     // Create data object
+    if (isValidUrl(itemPictureElement.value) == false) {
+        itemPictureElement.value = "https://images.unsplash.com/photo-1493612276216-ee3925520721?fm=jpg&q=60&w=3000&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8cmFuZG9tfGVufDB8fDB8fHww";
+    }
     const data = {
         IMAGE_URL: itemPictureElement.value,
         NAME: itemNameElement.value,
@@ -44,6 +44,7 @@ function updateDB(event) {
     // Write to our database
     database.push(data);
     // Reset message
+    itemPictureElement.value = "";
     itemNameElement.value = "";
     locationElement.value = "";
     emailElement.value = "";
@@ -59,15 +60,17 @@ function addItems() {
         itemDiv.className = "items";
         itemDiv.innerHTML = `
             <h3>${item.NAME}</h3>
-            
+            <img src="${item.IMAGE_URL}" style="max-width: 300px; height: 200px;" />
             <p>Location: ${item.LOCATION}</p>
             <p>Email: ${item.EMAIL}</p>
             <p>Phone: ${item.PHONE}</p>
             <p>Description: ${item.DESCRIPTION}</p>
             <p>Category: ${item.CATEGORY}</p>
             <a id = "request" href="https://mail.google.com/mail/?view=cm&fs=1&to=${item.EMAIL}&su=myLostItem&body=Hi, I belive this item belong to me!
-">REQUEST ITEM</a>
+" target="_blank">REQUEST ITEM</a>
+
             <hr>
+            
          `;
         itemsContainer.append(itemDiv);
     });
@@ -75,18 +78,12 @@ function addItems() {
 
 addItems();
 
-document.addEventListener('DOMContentLoaded', function() {
-    const imageInput = document.getElementById('imageUpload');
-    const preview = document.getElementById('preview');
-    if (imageInput && preview) {
-        imageInput.addEventListener('change', function(event) {
-            const file = event.target.files[0];
-            if (file) {
-                preview.src = URL.createObjectURL(file);
-                preview.style.display = 'block';
-            } else {
-                preview.style.display = 'none';
-            }
-        });
+//checking IF A URL IS VALID
+function isValidUrl(string) {
+    try {
+        new URL(string);
+        return true;
+    } catch (_) {
+        return false;
     }
-});
+}

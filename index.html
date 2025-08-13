@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -14,18 +15,18 @@
     <script defer src="init-firebase.js"></script>
     <script src="script.js" defer></script>
 </head>
+
 <body>
 
     <!-- Off-Screen Menu -->
     <div class="off-screen-menu">
         <ul>
-            <li><a href="item.html" class="glow-link">Post an Item</a></li>
-            <li><a href="viewYourItems.html">View Your Items</a></li>
+            <li><a href="item.html#addItems" target="_blank" class="glow-link">Post an Item</a></li>
+            <li><a href="item.html" target="_blank">View ALL Items</a></li>
             <li><a href="#categories">Categories</a></li>
-            <li><a href="#items-list">All Items</a></li>
         </ul>
     </div>
-    
+
     <!-- Navigation -->
     <nav class="navbar">
         <div class="ham-menu">
@@ -35,41 +36,32 @@
             <span></span>
             <span></span>
         </div>
-        <h1 class="nav-title">ReclaimIt</h1>
+        <h1 class="nav-title">ReClaimIt</h1>
     </nav>
-    <p class = "motto">"Whats lost can be found"</p>
+    <p class="motto">"What's lost can definitely be found"</p>
 
-    <div id = "buttonforNav">
-        <a id = "button1" href="">ADD AN ITEM</a>
+    <div id="buttonforNav">
+        <a id="button1" href="item.html#addItems" target="_blank">POST AN ITEM</a>
         <img id="logo" src="logo.png" alt="">
-        <a id = "button2" href="">VIEW ALL ITEMS</a>
+        <a id="button2" href="item.html" target="_blank">VIEW ALL ITEMS</a>
     </div>
 
-    
-    <!-- Categories Section -->
-
-    <!-- Items Section -->
-    <section id="items-list">
-        <h2>Lost & Found Items</h2>
-        <div id="items-container">
-            <!-- Items from Firebase will appear here -->
-        </div>
-    </section>
-
-    <h1>All Items </h1>
-    <div class = "itemsContainer"></div>
-    
-    <!-- Request Help Section -->
-    <section id="request">
-        <h2>Need Help?</h2>
-        <p>If you found your item, contact the owner!</p>
-        <a href="mailto:someone@example.com" class="request-btn">📩 Request Return</a>
-    </section>
+    <div id="about">
+        <h1 id = "jab">About ReClaimIt</h1>
+        <p id = "brandDescription">Losing something important is never fun — whether it’s your favorite watch, a trusted backpack, or that
+            umbrella you swore you had. Instead of retracing your steps endlessly, why not turn to a simple,
+            user-friendly online hub designed to reunite lost items with their owners? Our platform lets you easily
+            share detailed info about found items — including where they were discovered — along with your contact
+            details, making it easier than ever to connect and bring belongings back home. It’s a smarter, faster, and
+            friendlier way to handle lost and found in the digital age — helping turn those frustrating moments into
+            happy reunions.</p>
+    </div>
 
     <!-- Footer -->
     <footer>
-        <p>&copy; 2025 ReclaimIt. All rights reserved.</p>
+        <p>&copy; 2025 ReClaimIt. All Rights Reserved.</p>
     </footer>
-    <script defer src = "navBar.js"></script>
+    <script defer src="navBar.js"></script>
 </body>
+
 </html>
